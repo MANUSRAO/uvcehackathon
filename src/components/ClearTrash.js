@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react"
 import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import './ClearTrash.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ClearTrash = ()=>{
     const location = useLocation();
     const url = "https://rest-api-b9001-default-rtdb.asia-southeast1.firebasedatabase.app/Areas/"+location.state.name+".json";
@@ -116,6 +118,16 @@ const ClearTrash = ()=>{
             });
 
         //}
+        toast.success('Trash Cleared Successfully!', {
+            position: "top-center",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
         
     }
     return (
@@ -178,8 +190,20 @@ const ClearTrash = ()=>{
                 <input type="number" defaultValue={0} name="non_bio" onChange={(e)=>nonRecHandler(e)}/>
             </div>
 
-            <button onClick={submitButtonHandler}>Clear Trash</button>
+            <button className="btn" onClick={submitButtonHandler}>Clear Trash</button>
         </div>
+        <ToastContainer
+        position="top-center"
+        autoClose={2500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+/>
    </div>
     )
 }

@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react"
 import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const AddTrash = ()=>{
 
     const location = useLocation();
@@ -90,7 +92,16 @@ const AddTrash = ()=>{
             },
             body:JSON.stringify(data),
         });
-
+        toast.success('Trash Added Successfully!', {
+            position: "top-center",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
     }
 
     return (
@@ -130,9 +141,20 @@ const AddTrash = ()=>{
             <input type="number" defaultValue={0} name="non_bio" onChange={(e)=>nonRecHandler(e)}/>
         </div>
 
-        <button onClick={submitButtonHandler}>Add Trash</button>
+        <button className="btn" onClick={submitButtonHandler}>Add Trash</button>
       </div>
-
+      <ToastContainer
+        position="top-center"
+        autoClose={2500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+/>
    </div>
     )
    

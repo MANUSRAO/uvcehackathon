@@ -110,7 +110,7 @@ const Dashboard = () =>{
                       <h1>{data[1]}</h1>
                       <p><b>Address:</b> <br></br>{data[2]}</p>
                       <p><b>Manager:</b><br></br>{data[3]}</p>
-                      <button onClick={()=>navigate("/cluster",{state:{name:data[0]}})}>Know More</button>
+                      <button className="btn"onClick={()=>navigate("/cluster",{state:{name:data[0]}})}>Know More</button>
                     </div>
                    );
                })
