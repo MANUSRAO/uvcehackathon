@@ -1,13 +1,40 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;1,300&display=swap');
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* declaring the css variables colors */
+
+:root {
+  --color-primary-accent: #ff9c01;
+  --color-primary: #272343;
+  --color-button: #3d486c;
+  --color-paragraph: #797979;
+  --color-button-text: #e3f6f5;
+  --color-background: #fffffe;
+  --color-anchor: #bae8e8;
+  --color-shadow:rgba(0, 0, 0, .1);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+[data-theme='dark'] {
+  --color-primary-accent: #ff5277;
+  --color-primary: #fff;
+  --color-button: #43a9a3;
+  --color-paragraph: #8a8a8a;
+  --color-button-text: rgb(0, 0, 0);
+  --color-background: #0e141b;
+  --color-anchor: #43a9a3;
+  --color-shadow:rgba(255, 255, 255, .1)
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-size: 16px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a{
+  text-decoration: none;
 }

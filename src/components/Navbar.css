@@ -1,0 +1,253 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #ff5277;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ff5277;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider {
+  border-radius: 34px;
+}
+
+.slider:before {
+  border-radius: 50%;
+}
+
+/* Utility */
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 2.5rem;
+}
+
+.primary-btn{
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  background: var(--color-button);
+  color: var(--color-button-text);
+  border-radius: 5px;
+  padding: 15px 30px;
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 2rem;
+}
+
+.primary-btn a{
+  color: var(--color-button-text);
+}
+
+.secondary-btn{
+  cursor: pointer;
+  margin-top: 1rem;
+  background: var(--color-anchor);
+  color: var(--color-primary);
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 17px;
+  border: none;
+}
+
+.secondary-btn a{
+  color: var(--color-primary);
+}
+
+.tertiary-btn{
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  background: var(--color-primary-accent);
+  color: var(--color-button-text);
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 17px;
+  border: none;
+}
+
+.tertiary-btn a{
+  color: var(--color-button-text);
+}
+
+/* Navbar */
+header{
+  position: relative;
+  padding: 0 2rem;
+}
+
+.navbar {
+  width: 100%;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* Navbar logo */
+nav > .logo{
+  display: flex;
+  align-items: center;
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav > .logo:hover{
+  color: var(--color-primary-accent);
+}
+
+nav > .logo > .header_avatar{
+  width: 3.2rem;
+  height: 3.5rem;
+}
+nav > .logo > .header_name{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
+.header_verification{
+  width: 1.5rem;
+  height: 1.5rem;
+  padding-left: 0.1rem;
+  padding-bottom: 0.2rem;
+}
+
+/* Links */
+.navbar .links{
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.links li{
+  list-style: none;
+  color: var(--color-primary);
+}
+
+.links a{
+  color:var(--color-primary);
+}
+.navbar > .toggle_btn{
+  color: var(--color-button);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+
+/* Drop Down Menu */
+.drop_down{
+  display: none;
+  position: absolute;
+  right: 2rem;
+  top: 70px;
+  height: 0px;
+  width: 300px;
+  background:rgba(255, 255, 255, 0.1) ;
+  backdrop-filter: blur(15px);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.drop_down li{
+  padding: 1rem;
+}
+
+.drop_down.open{
+  height: 230px;
+}
+/* Responsive Design */
+@media (max-width:1000px) {
+  .navbar > .links{
+    display: none;
+  }
+  .navbar > .toggle_btn{
+    display: block;
+  }
+  .drop_down {
+    display: block;
+  }
+}
+
+@media (max-width:576px){
+  .container{
+    width: 90%;
+  }
+  .drop_down{
+    left: 2rem;
+    width: unset;
+    top:100px;
+  }
+}
+
+/* Hover Underline Animation */
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 5.5px;
+  bottom: -15px;
+  left: 0;
+  background-color: var(--color-primary-accent);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
