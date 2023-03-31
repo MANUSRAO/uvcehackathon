@@ -1,34 +1,6 @@
-import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css'
-const Navbar = () =>{
-    const [darkTheme, setDarkTheme] = useState(undefined);
-
-    const handleToggle = (event) => {
-      setDarkTheme(event.target.checked);
-    };
-  
-    useEffect(() => {
-      if (darkTheme !== undefined) {
-        if (darkTheme) {
-          // Set value of  darkmode to dark
-          document.documentElement.setAttribute('data-theme', 'dark');
-          window.localStorage.setItem('theme', 'dark');
-        } else {
-          // Set value of  darkmode to light
-          document.documentElement.removeAttribute('data-theme');
-          window.localStorage.setItem('theme', 'light');
-        }
-      }
-    }, [darkTheme]);
-  
-    useEffect(() => {
-      const root = window.document.documentElement;
-      const initialColorValue = root.style.getPropertyValue(
-        '--initial-color-mode'
-      );
-      // Set initial darkmode to light
-      setDarkTheme(initialColorValue === 'dark');
-    }, []);
+const Navbar = ({name}) =>{
     return (
         <header>
         <nav className='navbar'>
@@ -38,25 +10,9 @@ const Navbar = () =>{
             </span>
         </a>
         <ul className='links'>
-            <li><a className='hover-underline-animation' href='/'><b>01 </b>  Dashboard</a></li>
-            <li><a className='hover-underline-animation' href='/projects'><b>02</b> Edit</a></li>
-            <li><a className='hover-underline-animation' href='/blogs'><b>03</b> Profile</a></li>
-            <li>
-                <div className='action_btn'>
-                    {darkTheme !== undefined && (
-                        <form action="#">
-                        <label className="switch">
-                            <input
-                            type="checkbox"
-                            checked={darkTheme}
-                            onChange={handleToggle}
-                            />
-                            <span className="slider"></span>
-                        </label>
-                        </form>
-                    )}
-                </div>
-            </li>
+            <li><Link className='hover-underline-animation' to="/cluster" state={{name:name}} ><b>01 </b>Home</Link></li>
+            <li><Link className='hover-underline-animation' to='/addtrash' state={{name:name}}><b>02 </b>Add Trash</Link></li>
+            <li><Link className='hover-underline-animation' to='/cleartrash' state={{name:name}}><b>03 </b>Clear Trash</Link></li>
         </ul>
         <div className='toggle_btn'>
             <i className='fa-solid fa-bars'></i>
@@ -64,25 +20,9 @@ const Navbar = () =>{
       </nav>
       <div className='drop_down'>
             <ul className='links'>
-                <li><a className='hover-underline-animation' href='/'><b>01</b> Dashboard</a></li>
-                <li><a className='hover-underline-animation' href='/projects'><b>02</b> Edit</a></li>
-                <li><a className='hover-underline-animation' href='/blogs'><b>03</b> Profile</a></li>
-                <li>
-                <div>
-            {darkTheme !== undefined && (
-                <form action="#">
-                <label className="switch"> 
-                    <input
-                    type="checkbox"
-                    checked={darkTheme}
-                    onChange={handleToggle}
-                    />
-                    <span className="slider"></span>
-                </label>
-                </form>
-            )}
-            </div>
-                </li>
+            <li><Link className='hover-underline-animation' to="/cluster" state={{name:name}} ><b>01 </b>Home</Link></li>
+            <li><Link className='hover-underline-animation' to='/addtrash' state={{name:name}}><b>02 </b>Add Trash</Link></li>
+            <li><Link className='hover-underline-animation' to='/cleartrash' state={{name:name}}><b>03 </b>Clear Trash</Link></li>
             </ul>
         </div>
       </header>

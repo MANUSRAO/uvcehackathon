@@ -1,0 +1,22 @@
+.clusterCard{
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+	box-shadow: 0 30px 30px -25px rgba(65, 51, 183, .25);
+	max-width: 35%;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.inner{
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.inner > div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 33%;
+}

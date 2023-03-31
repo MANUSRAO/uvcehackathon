@@ -1,0 +1,28 @@
+.form{
+    padding: 1.5rem;
+    border-radius: 16px;
+	box-shadow: 0 30px 30px -25px rgba(65, 51, 183, .25);
+	max-width: 35%;
+    margin: auto;
+    margin-top: 2rem;
+    background-color: #fff;
+    margin-bottom: 3rem;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.trash-row{
+    display: flex;
+    margin: 1rem;
+    justify-content: space-between;
+}
+
+.trash-row > input{
+    border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 1rem;
+  padding: 12px;
+}
