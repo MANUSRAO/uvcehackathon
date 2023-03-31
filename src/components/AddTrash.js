@@ -90,8 +90,7 @@ const AddTrash = ()=>{
             },
             body:JSON.stringify(data),
         });
-        window.scrollTo(0,0);
-        window.location.reload();
+
     }
 
     return (
